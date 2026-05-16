@@ -180,9 +180,10 @@
     </div>
 
     <script>
-        // Inisialisasi audio dengan tautan lagu yang Anda berikan
+        // Setup objek audio
         const musik = new Audio('https://mp3tourl.com/audio/1778940388773-c4b26d9a-ec11-4c31-8338-7fb7ea8356d9.mp3');
-        musik.loop = true; // Agar lagu otomatis mengulang jika sudah habis
+        musik.loop = true;
+        musik.preload = 'auto';
 
         // Mempersiapkan teks agar bisa muncul per kata
         ff_prepareText();
@@ -211,9 +212,13 @@
         }
 
         function bukaPesan() {
-            // Putar musik secara otomatis
-            musik.play().catch(error => {
-                console.log("Pemutaran musik otomatis diblokir browser, butuh interaksi pengguna tambahan:", error);
+            // Memutar musik langsung saat tombol diklik
+            musik.play().then(() => {
+                console.log("Musik berhasil diputar.");
+            }).catch(error => {
+                console.log("Autoplay dicegah, mencoba alternatif...");
+                // Jalankan jeda sedikit jika browser mendeteksi interaksi terlalu cepat
+                setTimeout(() => { musik.play(); }, 400);
             });
 
             const intro = document.getElementById('intro-container');
@@ -235,10 +240,10 @@
                 setTimeout(() => {
                     word.classList.add('visible');
                 }, delay);
-                // Mengubah jeda antar kata menjadi 450ms (lebih lambat & tenang)
+                // Jeda antar kata 450ms (efek mengetik tenang/romantis)
                 delay += 450; 
             });
         }
     </script>
 </body>
-    </html>
+</html>
