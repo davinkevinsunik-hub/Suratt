@@ -6,7 +6,7 @@
     <title>Untuk Naila</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght=700&family=Quicksand:wght=500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -136,7 +136,7 @@
             color: var(--dark-pink);
         }
 
-        /* Animasi Kata demi Kata (Dibuat sedikit lebih lambat transisinya) */
+        /* Animasi Kata demi Kata */
         .word {
             display: inline-block;
             opacity: 0;
@@ -180,6 +180,10 @@
     </div>
 
     <script>
+        // Inisialisasi audio dengan tautan lagu yang Anda berikan
+        const musik = new Audio('https://mp3tourl.com/audio/1778940388773-c4b26d9a-ec11-4c31-8338-7fb7ea8356d9.mp3');
+        musik.loop = true; // Agar lagu otomatis mengulang jika sudah habis
+
         // Mempersiapkan teks agar bisa muncul per kata
         ff_prepareText();
 
@@ -207,6 +211,11 @@
         }
 
         function bukaPesan() {
+            // Putar musik secara otomatis
+            musik.play().catch(error => {
+                console.log("Pemutaran musik otomatis diblokir browser, butuh interaksi pengguna tambahan:", error);
+            });
+
             const intro = document.getElementById('intro-container');
             intro.classList.add('fade-out');
 
@@ -232,4 +241,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
