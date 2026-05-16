@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Naila</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #ffe5ec;
+            --card-color: rgba(255, 255, 255, 0.85);
+            --primary-pink: #ff758f;
+            --dark-pink: #c9184a;
+            --text-color: #594157;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Layar Utama / Intro */
+        #intro-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+            z-index: 10;
+            transition: opacity 1s ease, visibility 1s;
+        }
+
+        /* Tombol Berdenyut */
+        .pulse-btn {
+            padding: 18px 35px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: white;
+            background-color: var(--primary-pink);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 0 0 rgba(255, 117, 143, 0.7);
+            animation: pulse 1.6s infinite;
+            transition: transform 0.2s ease;
+        }
+
+        .pulse-btn:hover {
+            background-color: var(--dark-pink);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 117, 143, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 15px rgba(255, 117, 143, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 117, 143, 0);
+            }
+        }
+
+        /* Kelas untuk animasi fade out */
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* Wadah Surat / Message Container */
+        #message-container {
+            max-width: 600px;
+            width: 90%;
+            margin: 40px auto;
+            background: var(--card-color);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(201, 24, 74, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+
+        #message-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            color: var(--dark-pink);
+            margin-bottom: 25px;
+            border-bottom: 2px dashed #ffb3c1;
+            padding-bottom: 10px;
+        }
+
+        .letter-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .signature {
+            font-family: 'Caveat', cursive;
+            font-size: 2.2rem;
+            text-align: right;
+            margin-top: 30px;
+            color: var(--dark-pink);
+        }
+
+        /* Animasi Kata demi Kata (Dibuat sedikit lebih lambat transisinya) */
+        .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(5px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            margin-right: 5px;
+        }
+
+        .word.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="intro-container">
+        <button class="pulse-btn" onclick="bukaPesan()">Buka Pesan</button>
+    </div>
+
+    <div id="message-container">
+        <h1>Hai, Naila Aurora Alifa</h1>
+        
+        <div class="letter-content" id="surat">
+            <p>Sini nulis ini sambil tersenyum sendiri loh karena terpikir betapa lamanya kita sudah saling Mengenal. Rasanya baru kemarin kita bersama saat SD tapi ternyata waktu sudah membawa kita sejauh ini.</p>
+            
+            <p>Udah lama, sini ngerasa kayak ada sesuatu yang berbeda yang sini rasakan. Selama ini situ adalah temanku yang bisa berbagi cerita, tapi belakangan ini sini sadar kalau kehadiran situ memberikan rasa nyaman yang belum pernah sini rasakan sebelumnya. Nyaman yang membuat sini merasa bisa menjadi diri sendiri sepenuhnya tanpa perlu berpura-pura. Sini sangat menghargai pertemanan kita, dan kejujuran ini muncul justru karena sini sangat peduli ke situ.</p>
+            
+            <p>Ternyata, pertemanan yang kita bangun bertahun-tahun ini perlahan berubah menjadi sesuatu yang lebih berharga bagi sini. Situ bukan lagi sekadar teman lama, tapi seseorang yang kehadirannya selalu sini nantikan. Sini gak mau kalau tulisan ini merusak apa yang sudah ada. Sini Cuma mau jujur dengan perasaan sini sendiri karena bagi sini, situ terlalu berharga untuk tetap tersimpan sebagai rahasia. Apapun respon situ, sini harap kita tetap bisa menjaga komunikasi baik seperti biasanya.</p>
+            
+            <p>Terima kasih sudah menjadi bagian terindah dalam perjalanan hidup sini. Sini sangat bersyukur atas kebersamaan kita selama ini. Kebersamaan itu memberikan sini kekuatan dan mengingatkan sini kalau sini gak mau kehilangan situ lagi. Terima kasih sudah menjadi bagian dari ceritaku. Mari kita buat lebih banyak lagi kenangan indah di masa depan.</p>
+            
+            <p>Jangan lupa luangkan waktu untuk kita bertemu lagi dalam waktu dekat, ya! Makasih ya udah selalu ada. Aku paling suka momen pas kita lagi bersama dengerin cerita situ adalah hal favorit sini. Hal kayak gitu yang justru bikin aku ngerasa beruntung banget punya situ. Intinya, makasih ya udah jadi partner yang asyik buat segala situasi. Bareng kamu tuh rasanya santai, nyaman.</p>
+            
+            <p>Semoga situ sukses di tempat baru atau rencana baru situ. Semangat terus! Jangan sampai asing ya, harus saling tahu kabar. Dan sini akan nunggu situ dulu ya yang WA/DM soalnya sini gak mau ganggu situ. Good luck untuk semua yang akan situ lakuin.</p>
+        </div>
+
+        <div class="signature" id="tanda-tangan">
+            Terima kasih ... <br> Kevin Denis Maulana I.
+        </div>
+    </div>
+
+    <script>
+        // Mempersiapkan teks agar bisa muncul per kata
+        ff_prepareText();
+
+        function ff_prepareText() {
+            const paragraphs = document.querySelectorAll('.letter-content p, .signature');
+            
+            paragraphs.forEach(p => {
+                const text = p.innerText;
+                const words = text.split(/\s+/);
+                p.innerHTML = ''; 
+                
+                words.forEach(word => {
+                    if(word.trim() !== "") {
+                        const span = document.createElement('span');
+                        span.classList.add('word');
+                        if (word === '...') {
+                            span.innerHTML = word + '<br>';
+                        } else {
+                            span.textContent = word;
+                        }
+                        p.appendChild(span);
+                    }
+                });
+            });
+        }
+
+        function bukaPesan() {
+            const intro = document.getElementById('intro-container');
+            intro.classList.add('fade-out');
+
+            const messageContainer = document.getElementById('message-container');
+            
+            setTimeout(() => {
+                messageContainer.classList.add('show');
+                munculkanKataDemiKata();
+            }, 800); 
+        }
+
+        function munculkanKataDemiKata() {
+            const allWords = document.querySelectorAll('.word');
+            let delay = 0;
+
+            allWords.forEach((word) => {
+                setTimeout(() => {
+                    word.classList.add('visible');
+                }, delay);
+                // Mengubah jeda antar kata menjadi 450ms (lebih lambat & tenang)
+                delay += 450; 
+            });
+        }
+    </script>
+</body>
+</html>
